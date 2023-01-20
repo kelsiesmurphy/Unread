@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# CodeClan Group Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about">About</a>
+      <ul>
+        <li><a href="#brief">Brief</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- ABOUT -->
+### Unread
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- BRIEF -->
+Unread is a book tracking app created for the CodeClan Javascript group project in week 9 of the professional software development course. It allows users to track the books they read, displays the statistics of this with charts, and suggests new books to the user, using the OpenLibrary API.
+It was created in January 2023 by Andromeda, Anne, Delphine and Kelsie.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### MVP
+A user should be able to:
+* Search books from an API, find a specific one and add it to your database
+* View, edit and delete it.
+* Mark the book as read, or still to read.
 
-### `npm test`
+#### Extensions
+* Suggest a book - randomly generated from the app
+* Using a graph to see your progress over the year. A visual of your books per year.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Advanced Extensions
+* Share a book externally - send a book to another user in the app 
+* Share a book externally - send a book by email 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- <img align="center" src="https://user-images.githubusercontent.com/77012426/211512515-f07b3ef4-5805-4204-9bb6-0fe5b9848138.jpg" alt="Surveyflow landing page home"> -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- DESIGN -->
+## Design
+We designed the low fidelity and high fidelity wireframes in Figma during the planning process.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- BUILT WITH -->
+## Built With
 
-### `npm run eject`
+* React
+* React Router
+* Styled Components
+* HTML
+* CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- CONTACT -->
+## Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Kelsie Murphy - [GitHub](https://github.com/kelsiesmurphy)
+* Andromeda Akoulli - [GitHub](https://github.com/AndromedaMedi)
+* Anne McGinness - [GitHub](https://github.com/AMG05)
+* Delphine Dallison - [GitHub](https://github.com/Delfland)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/AndromedaMedi/Unread](https://github.com/AndromedaMedi/Unread)
