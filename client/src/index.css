@@ -1,13 +1,234 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --clr-primary-025: #F6FEF9;
+  --clr-primary-050: #EDFCF2;
+  --clr-primary-100: #D3F8DF;
+  --clr-primary-200: #AAF0C4;
+  --clr-primary-300: #73E2A3;
+  --clr-primary-400: #3CCB7F;
+  --clr-primary-500: #16B364;
+  --clr-primary-600: #099250;
+  --clr-primary-700: #087443;
+  --clr-primary-800: #095C37;
+  --clr-primary-900: #084C2E;
+
+  --clr-grey-025: #FCFCFD;
+  --clr-grey-050: #F9FAFB;
+  --clr-grey-100: #F2F4F7;
+  --clr-grey-200: #EAECF0;
+  --clr-grey-300: #D0D5DD;
+  --clr-grey-400: #98A2B3;
+  --clr-grey-500: #667085;
+  --clr-grey-600: #475467;
+  --clr-grey-700: #344054;
+  --clr-grey-800: #1D2939;
+  --clr-grey-900: #101828;
+
+  --fs-display-2xl: 5.625rem;
+  --fs-display-xl: 4.5rem;
+  --fs-display-lg: 3.75rem;
+  --fs-display-md: 2.75rem;
+  --fs-display-sm: 2.375rem;
+  --fs-display-xs: 2rem;
+
+  --fs-text-xl: 1.25rem;
+  --fs-text-lg: 1.125rem;
+  --fs-text-md: 1rem;
+  --fs-text-sm: 0.875rem;
+  --fs-text-xs: 0.75rem;
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-flow: column wrap;
+  place-items: top;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Buttons */
+
+.btn {
+  background-color: var(--clr-primary-600);
+  border:1px solid var(--clr-primary-600);
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  text-align: center;
+  transition: all 0.2s ease-out;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--clr-grey-700);
+  border: 1px solid var(--clr-grey-300);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background-color: var(--clr-primary-700);
+  color: white;
+  border:1px solid var(--clr-primary-700);
+}
+
+.btn-secondary:hover {
+  background-color: var(--clr-grey-050);
+  color: var(--clr-grey-800);
+  border: 1px solid var(--clr-grey-300);
+}
+
+.btn-tertiary:hover {
+  border: none;
+  color: white;
+}
+
+.btn:focus,
+.btn:focus-visible {
+  outline: 2px auto -webkit-focus-ring-color;
+}
+
+/* Links */
+
+a {
+  font-weight: var(--fw-medium);
+  color: var(--clr-primary-700);
+  text-decoration: inherit;
+  transition: color 0.2s ease-out;
+}
+a:hover {
+  color: var(--clr-primary-600);
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-semibold);
+  transition: font-size ease-out .2s;
+}
+
+h1 {
+  font-size: var(--fs-display-xl);
+  font-weight: var(--fw-medium);
+}
+
+h2 {
+  font-size: var(--fs-display-xl);
+}
+
+h3 {
+  font-size: var(--fs-display-lg);
+}
+
+h4 {
+  font-size: var(--fs-display-md);
+}
+
+h5 {
+  font-size: var(--fs-display-sm);
+}
+
+h6 {
+  font-size: var(--fs-display-xs);
+}
+
+p {
+  font-size: var(--fs-text-md);
+  font-weight: var(--fw-normal);
+  color: var(--clr-grey-500);
+}
+
+.text-size-xlarge {
+  font-size: var(--fs-text-lg);
+}
+
+.text-size-large {
+  font-size: var(--fs-text-lg);
+}
+
+.text-size-small {
+  font-size: var(--fs-text-sm);
+}
+
+.text-size-tiny {
+  font-size: var(--fs-text-xs);
+}
+
+/* Forms */
+
+.input-label {
+  font-size: var(--fs-text-sm);
+  font-weight: var(--fw-medium);
+  margin-bottom: 8px;
+}
+
+input:not([type='checkbox']) {
+  min-width: 288px;
+  padding: 12px 14px;
+  font-family: inherit;
+  color: var(--clr-grey-500);
+  font-size: var(--fs-text-md);
+  border: 1px solid var(--clr-grey-300);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.02);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input:not([type='checkbox']):focus {
+  box-shadow: 0px 0px 0px 4px rgba(152, 162, 179, 0.188);
+  outline: none;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 568px) {
+  :root {
+    --fs-display-2xl: 4.5rem;
+    --fs-display-xl: 3.75rem;
+    --fs-display-lg: 3rem;
+    --fs-display-md: 2.25rem;
+    --fs-display-sm: 1.875rem;
+    --fs-display-xs: 1.5rem;
+  }
 }
