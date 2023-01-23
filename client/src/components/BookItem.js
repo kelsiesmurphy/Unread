@@ -2,10 +2,10 @@ const BookItem = ({book}) => {
 
     return (
         <>
-        <img src={book.cover_image_url} alt={book.title} width="100rem"/>
-        <h4>{book.author_name}</h4>
-        <h3>{book.title}</h3>
-        <p>{book.description}</p>
+        {/* <img src={book.cover_image_url} alt={book.title} width="100rem"/> */}
+        <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
+        <h3>{book.title ? book.title : "Title not available"}</h3>
+        <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
         </>
     )
 }
