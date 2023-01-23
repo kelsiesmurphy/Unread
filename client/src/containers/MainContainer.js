@@ -9,7 +9,7 @@ import BookPage from './BookPage';
 const MainContainer = () => {
 
   const [searchResults, setSearchResults] = useState([])
-  const [searchBarInput, setSearchBarInput] = useState("fox")
+  const [searchBarInput, setSearchBarInput] = useState("")
   const [toReadList, setToReadList] = useState ([])
   
   useEffect( () => {
@@ -25,7 +25,7 @@ const MainContainer = () => {
         Promise.all(bookPromises)
         .then(books => {
           setSearchResults(books);
-          // console.log(searchResults)
+          console.log(searchResults)
           })
       })
   }, [searchBarInput])
