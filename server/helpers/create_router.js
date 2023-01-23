@@ -5,6 +5,8 @@ const createRouter = function(collection) {
 
   const router = express.Router();
 
+// Get all books (GET)
+
   router.get('/', (req, res) => {
     collection
     .find()
@@ -17,6 +19,21 @@ const createRouter = function(collection) {
     });
   });
 
+// Get a book (GET)
+
+  router.get('/:id', (req, res) => {
+    id = req.params.id
+    collection
+    .findOne({ _id: ObjectID(id) })
+    .then((docs) => res.json(docs))
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
+
+// Creating a book (POST)
   router.post('/', (req, res) => {
     const newData = req.body;
     collection
@@ -31,6 +48,7 @@ const createRouter = function(collection) {
     });
   });
 
+  // Updating a book (PUT)
   router.put('/:id', (req, res) => {
     const id = req.params.id;
     const updatedData = req.body;
@@ -46,6 +64,8 @@ const createRouter = function(collection) {
       res.json({ status: 500, error: err });
     });
   });
+
+  // Deleting a book (DELETE)
 
   router.delete('/:id', (req, res) => {
     const id = req.params.id;
