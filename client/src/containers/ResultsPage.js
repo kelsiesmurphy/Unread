@@ -1,15 +1,14 @@
 import React from "react";
 import ResultsList from "../components/ResultsList";
-import BookItem from "../components/BookItem";
-import AddButton from "../components/AddButton";
 
 
-const ResultsPage = () => {
+
+const ResultsPage = ({searchResults}) => {
     return (
 
         <>
         <h4>Resultspage</h4>
-        <ResultsList/>
+        <ResultsList searchResults={searchResults}/>
         </>
     );
 };
