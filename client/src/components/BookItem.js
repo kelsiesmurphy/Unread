@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import AddButton from "./AddButton";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 const BookItemContainer = styled.div`

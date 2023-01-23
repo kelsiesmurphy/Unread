@@ -9,7 +9,7 @@ import BookPage from './BookPage';
 const MainContainer = () => {
 
   const [searchResults, setSearchResults] = useState([])
-  const [searchBarInput, setSearchBarInput] = useState("")
+  const [searchBarInput, setSearchBarInput] = useState('')
   const [toReadList, setToReadList] = useState ([])
   
   useEffect( () => {
@@ -58,7 +58,7 @@ const MainContainer = () => {
             </Routes>
         </Router>
         </>
-    ); // path for bookpage needs fixed, should be books/{id}
+    ); // path for BookPage needs fixed, should be books/:id
 
 };
 
