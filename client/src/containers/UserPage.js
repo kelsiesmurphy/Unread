@@ -1,14 +1,12 @@
 import React from "react";
+import UserBookList from "../components/UserBookList"
 
 
-const UserPage = () => {
 
+const UserPage = ({toReadList, onBookRemoved}) => {
     return (
 
-        <>
-        <h4>Userpage</h4>
-      
-        </>
+        <UserBookList toReadList={toReadList} onBookRemoved={onBookRemoved}/>
     );
 };
 

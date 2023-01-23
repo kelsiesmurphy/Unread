@@ -1,4 +1,7 @@
+
+import AddButton from "./AddButton";
 import styled from 'styled-components'
+
 
 const BookItemContainer = styled.div`
     display: flex;
@@ -37,7 +40,7 @@ const BookDetailsContainer = styled.div`
     }
 `
 
-const BookItem = ({book}) => {
+const BookItem = ({book, onBookSelected}) => {
     return (
         <BookItemContainer>
             <BookImageContainer>
@@ -47,6 +50,7 @@ const BookItem = ({book}) => {
                 <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
                 <h3>{book.title ? book.title : "Title not available"}</h3>
                 <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
+                <AddButton book={book} onBookSelected={onBookSelected}/>
             </BookDetailsContainer>
         </BookItemContainer>
     )
