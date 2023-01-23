@@ -10,6 +10,7 @@ const MainContainer = () => {
 
   const [searchResults, setSearchResults] = useState([])
   const [searchBarInput, setSearchBarInput] = useState("")
+  const [searchBarInput, setSearchBarInput] = useState("")
   const [toReadList, setToReadList] = useState ([])
   
   useEffect( () => {
