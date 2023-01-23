@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const SearchBar = ({handleSubmitForm}) => {
+    const navigate = useNavigate();
 
     const [searchBarInput, setSearchBarInput] = useState("");
 
@@ -15,6 +17,7 @@ const SearchBar = ({handleSubmitForm}) => {
             searchBarInput: searchBarInput
         })
         setSearchBarInput("");
+        navigate('/books');
     };
 
 
