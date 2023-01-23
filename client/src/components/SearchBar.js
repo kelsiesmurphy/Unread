@@ -5,18 +5,16 @@ import {useNavigate} from "react-router-dom";
 const SearchBar = ({handleSubmitForm}) => {
     const navigate = useNavigate();
 
-    const [searchBarInput, setSearchBarInput] = useState("");
+    const [searchBarValue, setSearchBarValue] = useState("");
 
     const handleInput = (event) => {
-        setSearchBarInput(event.target.value)
+        setSearchBarValue(event.target.value)
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleSubmitForm({
-            searchBarInput: searchBarInput
-        })
-        setSearchBarInput("");
+        handleSubmitForm(searchBarValue.replace(/\s/g, '+'))
+        setSearchBarValue("");
         navigate('/books');
     };
 
@@ -28,7 +26,7 @@ const SearchBar = ({handleSubmitForm}) => {
                 type="text" 
                 placeholder="Search"
                 name="searchBarInput"
-                value={searchBarInput}
+                value={searchBarValue}
                 onChange={handleInput}
                 data-testid="search-bar"
             />

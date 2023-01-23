@@ -9,11 +9,12 @@ import BookPage from './BookPage';
 const MainContainer = () => {
 
   const [searchResults, setSearchResults] = useState([])
-  const [searchBarInput, setSearchBarInput] = useState("fox")
+  const [searchBarInput, setSearchBarInput] = useState("")
   const [toReadList, setToReadList] = useState ([])
   
   useEffect( () => {
-    searchBarInput.toString().replace(/\s/g, '+') 
+    // searchBarInput.replace(/\s/g, '+') 
+    console.log(searchBarInput);
     // ^ Regular Expression (REGEX) line for replacing white space with '+' to conform to the API.
     fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
       .then( res => res.json())
@@ -25,8 +26,7 @@ const MainContainer = () => {
         Promise.all(bookPromises)
         .then(books => {
           setSearchResults(books);
-          // console.log(searchResults)
-          })
+        })
       })
   }, [searchBarInput])
 
