@@ -131,6 +131,12 @@ img {
 
 /* Links */
 
+#nav {
+  display:flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
 a {
   font-weight: var(--fw-medium);
   color: var(--clr-primary-700);
