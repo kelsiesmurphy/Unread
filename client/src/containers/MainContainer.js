@@ -40,6 +40,10 @@ const MainContainer = () => {
         },
       ];
 
+      const handleSubmitForm = (searchBarInput) => { 
+        
+        console.log(searchBarInput);
+      }
       const [searchResults, setSearchResults] = useState(DummySearchResults)
 
     return (
@@ -47,6 +51,8 @@ const MainContainer = () => {
         <Router>
             <NavBar id="nav"/>
             <Routes>
+                <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
+                <Route path='/books' element={ <ResultsPage/> } />
                 <Route path='/' element={ <HomePage/> } />
                 <Route path='/books' element={ <ResultsPage searchResults={searchResults}/> } />
                 <Route path='/user' element={ <UserPage/> } />

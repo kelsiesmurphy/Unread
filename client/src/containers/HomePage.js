@@ -1,10 +1,11 @@
 import React from "react";
 
-const HomePage = () => {
+const HomePage = ({handleSubmitForm}) => {
 
     return (
         <>
         <h4>Homepage</h4>
+        <SearchBar handleSubmitForm={handleSubmitForm}/>
         </>
     );
 };
