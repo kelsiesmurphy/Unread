@@ -54,11 +54,12 @@ const MainContainer = () => {
                 <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
                 <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
                 <Route path='/user' element={ <UserPage toReadList={toReadList} onBookRemoved={onBookRemoved}/> } />
-                <Route path='/books/{id}' element={ <BookPage/> } /> 
+                <Route path='/books/:id' element={ <BookPage/> } /> 
             </Routes>
         </Router>
         </>
-    ); // path for BookPage needs fixed, should be books/:id
+    ); //check with tutors that bookpage path is written up properly.
+    // Add in an error page?
 
 };
 

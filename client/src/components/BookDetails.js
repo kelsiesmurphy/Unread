@@ -1,8 +1,10 @@
 import React from "react";
-import AddButton from "./AddButton";
+import { useParams } from "react-router-dom";
 
 
-const BookDetails = ({book, onBookSelected}) => {
+const BookDetails = () => {
+
+    const {id} = useParams(book._id)
 
     return (
 
@@ -14,7 +16,6 @@ const BookDetails = ({book, onBookSelected}) => {
                 <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
                 <h3>{book.title ? book.title : "Title not available"}</h3>
                 <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
-                <AddButton book={book} onBookSelected={onBookSelected}/>
             </div>
         </>
     );
