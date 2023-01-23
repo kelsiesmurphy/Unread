@@ -54,7 +54,7 @@ const MainContainer = () => {
                 <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
                 <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
                 <Route path='/user' element={ <UserPage toReadList={toReadList} onBookRemoved={onBookRemoved}/> } />
-                <Route path='/book' element={ <BookPage/> } /> 
+                <Route path='/books/{id}' element={ <BookPage/> } /> 
             </Routes>
         </Router>
         </>
