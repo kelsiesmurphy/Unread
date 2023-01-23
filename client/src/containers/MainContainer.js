@@ -40,11 +40,25 @@ const MainContainer = () => {
         },
       ];
 
+      
+      const [searchResults, setSearchResults] = useState(DummySearchResults)
+      const [toReadList, setToReadList] = useState ([])
+
       const handleSubmitForm = (searchBarInput) => { 
-        
         console.log(searchBarInput);
       }
-      const [searchResults, setSearchResults] = useState(DummySearchResults)
+
+      const onBookSelected = (book) => {
+        const copyToReadList = [...toReadList];
+        copyToReadList.push(book);
+        setToReadList(copyToReadList);
+      }
+
+      const onBookRemoved = (bookToRemove) => {
+        const copyToReadList = [...toReadList];
+        const newToReadList = copyToReadList.filter(book => book !== bookToRemove)
+        setToReadList(newToReadList);
+      }
 
     return (
         <>
@@ -52,15 +66,13 @@ const MainContainer = () => {
             <NavBar id="nav"/>
             <Routes>
                 <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
-                <Route path='/books' element={ <ResultsPage/> } />
-                <Route path='/' element={ <HomePage/> } />
-                <Route path='/books' element={ <ResultsPage searchResults={searchResults}/> } />
-                <Route path='/user' element={ <UserPage/> } />
+                <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
+                <Route path='/user' element={ <UserPage toReadList={toReadList} onBookRemoved={onBookRemoved}/> } />
                 <Route path='/book' element={ <BookPage/> } /> 
             </Routes>
         </Router>
         </>
-    ); // path for books needs fixed, should be books/{id}
+    ); // path for bookpage needs fixed, should be books/{id}
 };
 
 

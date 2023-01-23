@@ -1,4 +1,6 @@
-const BookItem = ({book}) => {
+import AddButton from "./AddButton";
+
+const BookItem = ({book, onBookSelected}) => {
 
     return (
         <>
@@ -6,6 +8,7 @@ const BookItem = ({book}) => {
         <h4>{book.author_name}</h4>
         <h3>{book.title}</h3>
         <p>{book.description}</p>
+        <AddButton book={book} onBookSelected={onBookSelected}/>
         </>
     )
 }
