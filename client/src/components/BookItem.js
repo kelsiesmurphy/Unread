@@ -1,6 +1,7 @@
-
+import React from 'react';
+import {Link} from 'react-router-dom';
 import AddButton from "./AddButton";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 const BookItemContainer = styled.div`
@@ -41,6 +42,9 @@ const BookDetailsContainer = styled.div`
 `
 
 const BookItem = ({book, onBookSelected}) => {
+
+    const bookUrl = `http://localhost:3000/books/${book._id}`
+
     return (
         <BookItemContainer>
             <BookImageContainer>
@@ -50,6 +54,7 @@ const BookItem = ({book, onBookSelected}) => {
                 <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
                 <h3>{book.title ? book.title : "Title not available"}</h3>
                 <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
+                <Link to={bookUrl}>expand</Link>
                 <AddButton book={book} onBookSelected={onBookSelected}/>
             </BookDetailsContainer>
         </BookItemContainer>
