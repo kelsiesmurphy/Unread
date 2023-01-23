@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import HomePage from './HomePage';
@@ -7,6 +7,7 @@ import UserPage from './UserPage';
 import BookPage from './BookPage';
 
 const MainContainer = () => {
+
 
     const DummySearchResults = [
         {
@@ -43,6 +44,7 @@ const MainContainer = () => {
         
         console.log(searchBarInput);
       }
+      const [searchResults, setSearchResults] = useState(DummySearchResults)
 
     return (
         <>
@@ -51,6 +53,8 @@ const MainContainer = () => {
             <Routes>
                 <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
                 <Route path='/books' element={ <ResultsPage/> } />
+                <Route path='/' element={ <HomePage/> } />
+                <Route path='/books' element={ <ResultsPage searchResults={searchResults}/> } />
                 <Route path='/user' element={ <UserPage/> } />
                 <Route path='/book' element={ <BookPage/> } /> 
             </Routes>
