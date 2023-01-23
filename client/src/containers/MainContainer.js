@@ -39,12 +39,17 @@ const MainContainer = () => {
         },
       ];
 
+      const handleSubmitForm = (searchBarInput) => { 
+        
+        console.log(searchBarInput);
+      }
+
     return (
         <>
         <Router>
             <NavBar id="nav"/>
             <Routes>
-                <Route path='/' element={ <HomePage/> } />
+                <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
                 <Route path='/books' element={ <ResultsPage/> } />
                 <Route path='/user' element={ <UserPage/> } />
                 <Route path='/book' element={ <BookPage/> } /> 
