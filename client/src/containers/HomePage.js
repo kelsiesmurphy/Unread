@@ -5,6 +5,7 @@ const HomePage = () => {
 
     return (
         <>
+        <h4>Homepage</h4>
         <SearchBar/>
         </>
     );
