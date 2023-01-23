@@ -42,11 +42,11 @@ const MainContainer = () => {
     return (
         <>
         <Router>
-            <NavBar/>
+            <NavBar id="nav"/>
             <Routes>
                 <Route path='/' element={ <HomePage/> } />
                 <Route path='/books' element={ <ResultsPage/> } />
-                <Route path='/user/' element={ <UserPage/> } />
+                <Route path='/user' element={ <UserPage/> } />
                 <Route path='/book' element={ <BookPage/> } /> 
             </Routes>
         </Router>
