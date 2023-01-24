@@ -40,8 +40,8 @@ const NavBar = () => {
                     </div>
                 </LeftNavBar>
                 <RightNavBar>
-                    <a className='btn btn-tertiary' href='#'>Log in</a>
-                    <a className='btn' href='#'>Sign up</a>
+                    <a className='btn btn-tertiary' href='/login'>Log in</a>
+                    <a className='btn' href='/login'>Sign up</a>
                 </RightNavBar>
             </NavBarContainer>
         </OuterContainer>
