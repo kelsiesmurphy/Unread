@@ -154,6 +154,18 @@ img {
   border: none;
 }
 
+.btn-4:hover {
+  background-color: #06322e;
+  color: white;
+  border:1px solid #06322e;
+}
+
+.btn-5:hover {
+  background-color: var(--clr-grey-050);
+  color: var(--clr-grey-900);
+  border: 1px solid var(--clr-grey-300);
+}
+
 .btn:focus,
 .btn:focus-visible {
   outline: 2px auto -webkit-focus-ring-color;
