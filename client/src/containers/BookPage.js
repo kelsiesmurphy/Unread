@@ -12,7 +12,7 @@ const BookPage = () => {
             <BookDetails/>
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default BookPage;
