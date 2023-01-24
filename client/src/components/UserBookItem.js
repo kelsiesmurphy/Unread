@@ -1,5 +1,6 @@
 import RemoveButton from "./RemoveButton";
 import styled from 'styled-components'
+import {Link} from 'react-router-dom';
 
 
 const BookItemContainer = styled.div`
@@ -46,6 +47,8 @@ const BookDetailsContainer = styled.div`
 
 const UserBookItem = ({userBook, onBookRemoved}) => {
 
+    const bookUrl = `http://localhost:3000/books/${userBook._id}`
+
     return (
         <BookItemContainer>
             <BookImageContainer>
@@ -56,6 +59,7 @@ const UserBookItem = ({userBook, onBookRemoved}) => {
                     <h4>{userBook.author_name ? userBook.author_name : "Author not available"}</h4>
                     <h3>{userBook.title ? userBook.title : "Title not available"}</h3>
                     <p>{typeof userBook.description === "string" ? userBook.description : "Description not available"}</p>
+                    <Link to={bookUrl}>expand</Link>
                 </div>
                 <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
             </BookDetailsContainer>
