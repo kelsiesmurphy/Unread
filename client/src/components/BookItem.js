@@ -53,7 +53,6 @@ const BookItem = ({book, onBookSelected}) => {
     // fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
     //   .then( res => console.log(res.json()))
 
-
     return (
         <BookItemContainer>
             <BookImageContainer>
