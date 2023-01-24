@@ -43,7 +43,7 @@ const BookDetailsContainer = styled.div`
 
 const BookItem = ({book, onBookSelected}) => {
 
-    const bookUrl = `http://localhost:3000/books/${book._id}`
+    const bookUrl = `/books/${book._id}`
 
     return (
         <BookItemContainer>
