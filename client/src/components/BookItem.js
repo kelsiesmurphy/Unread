@@ -48,11 +48,10 @@ const BookDetailsContainer = styled.div`
 
 const BookItem = ({book, onBookSelected}) => {
 
+    const bookUrl = `/books/${book._id}`
 
     fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
       .then( res => console.log(res.json()))
-
-    const bookUrl = `http://localhost:3000/books/${book._id}`
 
 
     return (

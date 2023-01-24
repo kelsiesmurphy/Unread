@@ -47,7 +47,7 @@ const BookDetailsContainer = styled.div`
 
 const UserBookItem = ({userBook, onBookRemoved}) => {
 
-    const bookUrl = `http://localhost:3000/books/${userBook._id}`
+    const bookUrl = `/books/${userBook._id}`
 
     return (
         <BookItemContainer>
