@@ -1,5 +1,9 @@
+import MainContainer from "./containers/MainContainer";
+
 function App() {
-  return 
+  return (
+    <MainContainer/>
+  )
 }
 
 export default App;

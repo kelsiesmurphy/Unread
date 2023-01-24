@@ -1,7 +1,6 @@
-import React from 'react';
+import RemoveButton from "./RemoveButton";
+import styled from 'styled-components'
 import {Link} from 'react-router-dom';
-import AddButton from "./AddButton";
-import styled from 'styled-components';
 
 
 const BookItemContainer = styled.div`
@@ -46,30 +45,27 @@ const BookDetailsContainer = styled.div`
     }
 `
 
-const BookItem = ({book, onBookSelected}) => {
+const UserBookItem = ({userBook, onBookRemoved}) => {
 
-    // fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
-    //   .then( res => console.log(res.json()))
-
+    const bookUrl = `/books/${userBook._id}`
 
     return (
         <BookItemContainer>
             <BookImageContainer>
-                <img src={book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "/book-cover-unavailable.svg"} alt={book.title} />
+                <img src={userBook.cover_image_url} />
             </BookImageContainer>
             <BookDetailsContainer>
-
                 <div>
-                    {/* FIX THIS KELSIE */}
-                    {/* <h4>{book.authors ? book.authors[0].name : "Author not available"}</h4>  */}
-                    <h3>{book.title ? book.title : "Title not available"}</h3>
-                    <p>{typeof book.description === "string" ? book.description.substring(0, 400) + "..." : "Description not available"}</p>
+                    <h4>{userBook.author_name}</h4>
+                    <h3>{userBook.title}</h3>
+                    <p>{userBook.description.substring(0, 104) + "..."}</p>
+                    <br/>
+                    <Link to={bookUrl}>Further details...</Link>
                 </div>
-
-                <AddButton book={book} onBookSelected={onBookSelected}/>
+                <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
             </BookDetailsContainer>
         </BookItemContainer>
     )
 }
 
-export default BookItem;
+export default UserBookItem;
