@@ -3,9 +3,14 @@ const baseURL = 'http://localhost:9000/api/books';
 const BookService = {
 
 //    gets All books from database
-   
     getBooks() {
         return fetch(baseURL)
+        .then(res => res.json());
+    },
+
+//    get single book from d
+    getSingleBook(id) {
+        return fetch(baseURL + "/" + id)
         .then(res => res.json());
     },
 
@@ -35,7 +40,7 @@ const BookService = {
 
 // Delete a book
     deleteBook(id) {
-        return fetch(baseURL + "/" +id, {
+        return fetch(baseURL + "/" + id, {
             method: 'DELETE'
         });
     }

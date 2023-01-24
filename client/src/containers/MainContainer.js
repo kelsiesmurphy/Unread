@@ -33,22 +33,22 @@ const MainContainer = () => {
   useEffect(() => {
     BookService.getBooks()
       .then(books => setToReadList(books))
-  })
+  }, [])
 
-      const handleSubmitForm = (updatedValue) => { 
-        setSearchBarInput(updatedValue)
-      }
+  const handleSubmitForm = (updatedValue) => { 
+    setSearchBarInput(updatedValue)
+  }
 
-      const onBookSelected = (book) => {
-        const updatedBook = {
-          "title": book.title ? book.title : "Title not available",
-          "author_name": "TBC",
-          "cover_image_url": book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "/book-cover-unavailable.svg",
-          "description": typeof book.description === "string" ? book.description : "Description not available"
-        }
-        BookService.addBook(updatedBook) 
-        .then(savedBook => setToReadList([...toReadList, savedBook]));
-      }
+  const onBookSelected = (book) => {
+    const updatedBook = {
+      "title": book.title ? book.title : "Title not available",
+      "author_name": "TBC",
+      "cover_image_url": book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "/book-cover-unavailable.svg",
+      "description": typeof book.description === "string" ? book.description : "Description not available"
+    }
+    BookService.addBook(updatedBook) 
+    .then(savedBook => setToReadList([...toReadList, savedBook]));
+  }
 
       const onBookRemoved = (bookToRemove) => {
         BookService.deleteBook(bookToRemove._id);
@@ -61,7 +61,6 @@ const MainContainer = () => {
         copyUser ={userlogin: login}
         setUser(copyUser)
     };
-
 
     return (
         <>
