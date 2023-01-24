@@ -12,8 +12,11 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
   .then((client) => {
     const db = client.db('book_data');
     const booksCollection = db.collection('books');
+    const usersCollection = db.collection('users');
     const booksRouter = createRouter(booksCollection);
+    const usersRouter = createRouter(usersCollection);
     app.use('/api/books', booksRouter);
+    app.use('/api/users', usersRouter);
   })
   .catch(console.err);
 

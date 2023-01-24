@@ -1,6 +1,21 @@
 use book_data;
 db.dropDatabase();
 
+db.users.insertMany([
+  {
+    "login": {
+      "username":"Lord_of_the_flies",
+      "email": "lotf@yahoo.com"
+    }
+  },
+  {
+    "login": {
+      "username":"no_name",
+      "email": "peter@yahoo.com"
+    }
+  }
+])
+
 db.books.insertMany([
   {
     "title": "The Lord of the Rings",
