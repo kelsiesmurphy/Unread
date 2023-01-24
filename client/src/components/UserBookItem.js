@@ -26,13 +26,18 @@ const BookDetailsContainer = styled.div`
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    > h4 {
+    justify-content: space-between;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    > div > h4 {
         font-size: var(--fs-text-sm);
         font-weight: var(--fw-semibold);
         color: var(--clr-grey-700);
     }
-    > h3 {
+    > div > h3 {
         font-size: var(--fs-text-lg);
         font-weight: var(--fw-semibold);
         color: var(--clr-grey-900);
@@ -44,12 +49,14 @@ const UserBookItem = ({userBook, onBookRemoved}) => {
     return (
         <BookItemContainer>
             <BookImageContainer>
-                <img src={userBook.covers ? `https://covers.openlibrary.org/b/id/${userBook.covers[0]}-L.jpg` : "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_4x3.jpg"} alt={userBook.title} />
+                <img src={userBook.covers ? `https://covers.openlibrary.org/b/id/${userBook.covers[0]}-L.jpg` : "/book-cover-unavailable.svg"} alt={userBook.title} />
             </BookImageContainer>
             <BookDetailsContainer>
-                <h4>{userBook.author_name ? userBook.author_name : "Author not available"}</h4>
-                <h3>{userBook.title ? userBook.title : "Title not available"}</h3>
-                <p>{typeof userBook.description === "string" ? userBook.description : "Description not available"}</p>
+                <div>
+                    <h4>{userBook.author_name ? userBook.author_name : "Author not available"}</h4>
+                    <h3>{userBook.title ? userBook.title : "Title not available"}</h3>
+                    <p>{typeof userBook.description === "string" ? userBook.description : "Description not available"}</p>
+                </div>
                 <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
             </BookDetailsContainer>
         </BookItemContainer>

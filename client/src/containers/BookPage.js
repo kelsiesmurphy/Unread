@@ -1,7 +1,13 @@
-const BookPage = () => {
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
+const BookPage = () => {
     return (
-        <h4>Bookpage</h4>
+        <>
+            <NavBar id="nav"/>
+            <h4>Bookpage</h4>
+            <Footer />
+        </>
     )
 }
 
