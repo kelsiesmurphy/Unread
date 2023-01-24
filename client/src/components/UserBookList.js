@@ -12,14 +12,12 @@ const StyledUl = styled.ul`
   }
 `
 
-const UserBookList = ({toReadList, onBookRemoved}) => {
-
-    const userBooksNodes = toReadList.map((userBook, index) => {
+const UserBookList = ({user, onBookRemoved}) => {
+    const userBooksNodes = user.unreadBooks.map((userBook, index) => {
         return <li key={index}><UserBookItem userBook={userBook} onBookRemoved={onBookRemoved}/></li>
     })
 
     return (
-
       <StyledUl>
         {userBooksNodes}
       </StyledUl> 

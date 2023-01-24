@@ -9,32 +9,29 @@ import BookService from '../services/BookService';
 import UserService from '../services/UserService';
 
 const MainContainer = () => {
+  const [searchResults, setSearchResults] = useState([])
+  const [searchBarInput, setSearchBarInput] = useState('')
+  const [user, setUser] = useState({})
 
-    const [searchResults, setSearchResults] = useState([])
-    const [searchBarInput, setSearchBarInput] = useState('')
-    const [toReadList, setToReadList] = useState ([])
-    const [user, setUser] = useState({})
+  useEffect( () => {
+      fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
+      .then( res => res.json())
+      .then(bookData => {
+          const bookPromises = bookData.docs.splice(0, 20).map((doc) => {
+          return fetch(`https://openlibrary.org/${doc.key}.json`)
+              .then(res => res.json())
+          });
+          Promise.all(bookPromises)
+          .then(books => {
+          setSearchResults(books);
+          });
+      })
+  }, [searchBarInput]);
 
-    useEffect( () => {
-        fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
-        .then( res => res.json())
-        .then(bookData => {
-            const bookPromises = bookData.docs.splice(0, 20).map((doc) => {
-            return fetch(`https://openlibrary.org/${doc.key}.json`)
-                .then(res => res.json())
-            });
-            Promise.all(bookPromises)
-            .then(books => {
-            setSearchResults(books);
-            });
-        })
-    }, [searchBarInput]);
-
-
-  useEffect(() => {
-    BookService.getBooks()
-      .then(books => setToReadList(books))
-  }, [])
+  // useEffect(() => {
+  //   BookService.getBooks()
+  //     .then(books => setToReadList(books))
+  // }, [])
 
   const handleSubmitForm = (updatedValue) => { 
     setSearchBarInput(updatedValue)
@@ -48,37 +45,44 @@ const MainContainer = () => {
       "description": typeof book.description === "string" ? book.description : "Description not available"
     }
     BookService.addBook(updatedBook) 
-    .then(savedBook => setToReadList([...toReadList, savedBook]));
+    .then((savedBook) => {
+      // setToReadList([...toReadList, savedBook])
+      // Create a 'unreadBooks' array, and add updates it on the user.
+      const copyUser = user
+      copyUser.unreadBooks = []
+      copyUser.unreadBooks.push(savedBook)
+      // ISSUES ARE AROUND HEREE!
+      setUser(copyUser)
+      UserService.updateUser(copyUser)
+    })
   }
 
-      const onBookRemoved = (bookToRemove) => {
-        BookService.deleteBook(bookToRemove._id);
-        setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
-       
-      }
+  const onBookRemoved = (bookToRemove) => {
+    const bookToRemoveIndex = user.unreadBooks.findIndex(book => book._id === bookToRemove._id)
+    user.unreadBooks.splice(bookToRemoveIndex, 1)
+    BookService.deleteBook(bookToRemove._id);
+    // setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
+  }
       
-      const onFormSubmit = (login) => {
-        const newUser = {userlogin: login}
-        UserService.addUser(newUser)
-        .then(savedUser => setUser(savedUser));
+  const onFormSubmit = (login) => {
+    const newUser = {userlogin: login}
+    UserService.addUser(newUser)
+    .then(savedUser => setUser(savedUser));
+  };
 
-    };
-
-    return (
-        <>
-        <Router>
-            <Routes>
-                <Route path='/login' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
-                <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
-                <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
-                <Route path='/user' element={ <UserPage toReadList={toReadList} onBookRemoved={onBookRemoved}/> } />
-                <Route path='/books/:id' element={ <BookPage/> } /> 
-            </Routes>
-        </Router>
-        </>
-    ); //check with tutors that bookpage path is written up properly.
-    // Add in an error page?
-
+  return (
+      <>
+      <Router>
+          <Routes>
+              <Route path='/' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
+              <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
+              <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
+              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved}/> } />
+              <Route path='/books/:id' element={ <BookPage/> } /> 
+          </Routes>
+      </Router>
+      </>
+  );
 };
 
 

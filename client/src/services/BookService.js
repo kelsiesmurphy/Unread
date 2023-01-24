@@ -28,7 +28,7 @@ const BookService = {
 
  // Updating a book
     updateBook(book) {
-        return fetch(baseURL + book._id, {
+        return fetch(baseURL + "/" +  book._id, {
             method: 'PUT',
             body: JSON.stringify(book),
             headers: {
