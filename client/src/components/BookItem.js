@@ -48,12 +48,10 @@ const BookDetailsContainer = styled.div`
 
 const BookItem = ({book, onBookSelected}) => {
 
+    const bookUrl = `/books/${book._id}`
 
-    fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
-    .then( res => console.log(res.json()))
-
-    const bookUrl = `http://localhost:3000/books/${book._id}`
-
+    // fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
+    //   .then( res => console.log(res.json()))
 
     return (
         <BookItemContainer>
@@ -64,14 +62,10 @@ const BookItem = ({book, onBookSelected}) => {
 
                 <div>
                     {/* FIX THIS KELSIE */}
-                    <h4>{book.authors ? book.authors[0].name : "Author not available"}</h4> 
+                    {/* <h4>{book.authors ? book.authors[0].name : "Author not available"}</h4>  */}
                     <h3>{book.title ? book.title : "Title not available"}</h3>
                     <p>{typeof book.description === "string" ? book.description.substring(0, 104) + "..." : "Description not available"}</p>
                 </div>
-
-                <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
-                <h3>{book.title ? book.title : "Title not available"}</h3>
-                <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
                 <Link to={bookUrl}>expand</Link>
 
                 <AddButton book={book} onBookSelected={onBookSelected}/>

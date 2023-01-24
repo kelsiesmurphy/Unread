@@ -47,18 +47,18 @@ const BookDetailsContainer = styled.div`
 
 const UserBookItem = ({userBook, onBookRemoved}) => {
 
-    const bookUrl = `http://localhost:3000/books/${userBook._id}`
+    const bookUrl = `/books/${userBook._id}`
 
     return (
         <BookItemContainer>
             <BookImageContainer>
-                <img src={userBook.covers ? `https://covers.openlibrary.org/b/id/${userBook.covers[0]}-L.jpg` : "/book-cover-unavailable.svg"} alt={userBook.title} />
+                <img src={userBook.cover_image_url} />
             </BookImageContainer>
             <BookDetailsContainer>
                 <div>
-                    <h4>{userBook.author_name ? userBook.author_name : "Author not available"}</h4>
-                    <h3>{userBook.title ? userBook.title : "Title not available"}</h3>
-                    <p>{typeof userBook.description === "string" ? userBook.description : "Description not available"}</p>
+                    <h4>{userBook.author_name}</h4>
+                    <h3>{userBook.title}</h3>
+                    <p>{userBook.description.substring(0, 104) + "..."}</p>
                     <Link to={bookUrl}>expand</Link>
                 </div>
                 <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
