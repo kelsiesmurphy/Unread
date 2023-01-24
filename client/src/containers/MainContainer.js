@@ -6,6 +6,7 @@ import ResultsPage from './ResultsPage';
 import UserPage from './UserPage';
 import BookPage from './BookPage';
 import BookService from '../services/BookService';
+import UserService from '../services/UserService';
 
 const MainContainer = () => {
 
@@ -57,9 +58,10 @@ const MainContainer = () => {
       }
       
       const onFormSubmit = (login) => {
-        let copyUser = {...user}
-        copyUser ={userlogin: login}
-        setUser(copyUser)
+        const newUser = {userlogin: login}
+        UserService.addUser(newUser)
+        .then(savedUser => setUser(savedUser));
+
     };
 
     return (
