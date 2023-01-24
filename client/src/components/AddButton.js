@@ -5,7 +5,7 @@ const AddButton = ({book, onBookSelected}) => {
     }
 
     return(
-        <button onClick={handleClick}>Add to List</button>
+        <button className="btn" onClick={handleClick}>Add to List</button>
     )
 }
 

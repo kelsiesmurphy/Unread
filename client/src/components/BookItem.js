@@ -28,13 +28,18 @@ const BookDetailsContainer = styled.div`
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    > h4 {
+    justify-content: space-between;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    > div > h4 {
         font-size: var(--fs-text-sm);
         font-weight: var(--fw-semibold);
         color: var(--clr-grey-700);
     }
-    > h3 {
+    > div > h3 {
         font-size: var(--fs-text-lg);
         font-weight: var(--fw-semibold);
         color: var(--clr-grey-900);
@@ -45,16 +50,29 @@ const BookItem = ({book, onBookSelected}) => {
 
     const bookUrl = `/books/${book._id}`
 
+    fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
+      .then( res => console.log(res.json()))
+
+
     return (
         <BookItemContainer>
             <BookImageContainer>
-                <img src={book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_4x3.jpg"} alt={book.title} />
+                <img src={book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "/book-cover-unavailable.svg"} alt={book.title} />
             </BookImageContainer>
             <BookDetailsContainer>
+
+                <div>
+                    {/* FIX THIS KELSIE */}
+                    <h4>{book.authors ? book.authors[0].name : "Author not available"}</h4> 
+                    <h3>{book.title ? book.title : "Title not available"}</h3>
+                    <p>{typeof book.description === "string" ? book.description.substring(0, 104) + "..." : "Description not available"}</p>
+                </div>
+
                 <h4>{book.author_name ? book.author_name : "Author not available"}</h4>
                 <h3>{book.title ? book.title : "Title not available"}</h3>
                 <p>{typeof book.description === "string" ? book.description : "Description not available"}</p>
                 <Link to={bookUrl}>expand</Link>
+
                 <AddButton book={book} onBookSelected={onBookSelected}/>
             </BookDetailsContainer>
         </BookItemContainer>

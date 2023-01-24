@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import NavBar from '../components/NavBar';
 import HomePage from './HomePage';
 import ResultsPage from './ResultsPage';
 import UserPage from './UserPage';
@@ -13,8 +12,6 @@ const MainContainer = () => {
   const [toReadList, setToReadList] = useState ([])
   
   useEffect( () => {
-    // searchBarInput.replace(/\s/g, '+') 
-    console.log(searchBarInput);
     // ^ Regular Expression (REGEX) line for replacing white space with '+' to conform to the API.
     fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
       .then( res => res.json())
@@ -49,7 +46,6 @@ const MainContainer = () => {
     return (
         <>
         <Router>
-            <NavBar id="nav"/>
             <Routes>
                 <Route path='/' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
                 <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
