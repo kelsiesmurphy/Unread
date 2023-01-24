@@ -59,7 +59,8 @@ const UserBookItem = ({userBook, onBookRemoved}) => {
                     <h4>{userBook.author_name}</h4>
                     <h3>{userBook.title}</h3>
                     <p>{userBook.description.substring(0, 104) + "..."}</p>
-                    <Link to={bookUrl}>expand</Link>
+                    <br/>
+                    <Link to={bookUrl}>Further details...</Link>
                 </div>
                 <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
             </BookDetailsContainer>
