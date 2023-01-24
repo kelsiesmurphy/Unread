@@ -27,7 +27,7 @@ const LoginForm = ({onFormSubmit}) => {
         <form onSubmit={handleLoginSubmit}>
             <input type="text" placeholder="User Name" value={stateUsername} onChange={handleUsername}/>
             <input type="text" placeholder="E-mail" value={stateEmail} onChange={handleEmail}/>
-            <input type="submit" value="Submit"/>
+            <input className="btn" type="submit" value="Submit"/>
         </form>
         </>
 
