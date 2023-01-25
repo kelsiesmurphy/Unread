@@ -50,17 +50,20 @@ const BookDetailsContainer = styled.div`
         font-weight: var(--fw-semibold);
         color: var(--clr-grey-900);
     }
+    > div > p {
+        max-width: 600px;
+    }
 `
-const ButtonsContainer = styled.div`
-    padding-top: 2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: baseline;
-`
+// const ButtonsContainer = styled.div`
+//     padding-top: 2rem;
+//     flex: 1;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: left;
+//     align-items: baseline;
+// `
 
-const BookPage = ({userBook, onBookRemoved, onBookRead}) => {
+const BookPage = ({userBook, readState, onBookRemoved, onBookRead, onBookUnread}) => {
 
     const {id} = useParams()
 
@@ -82,10 +85,10 @@ const BookPage = ({userBook, onBookRemoved, onBookRead}) => {
                         <h3>{book.title}</h3>
                         <p>{book.description}</p>
                     </div>
-                    <ButtonsContainer>
-                        <RemoveButton className="btn-5" userBook={userBook} onBookRemoved={onBookRemoved}/>
-                        <ReadButton onBookRead={onBookRead} userBook={userBook}/>
-                    </ButtonsContainer>
+                    {/* <ButtonsContainer>
+                        <RemoveButton className="btn-5" readState={readState} userBook={userBook} onBookRemoved={onBookRemoved}/>
+                        <ReadButton onBookRead={onBookRead} onBookUnread={onBookUnread} readState={readState} userBook={userBook}/>
+                    </ButtonsContainer> */}
                 </BookDetailsContainer>
                 <BookImageContainer>
                     <img src={book.cover_image_url} alt={book.title} />

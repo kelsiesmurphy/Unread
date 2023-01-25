@@ -112,7 +112,7 @@ const MainContainer = () => {
               <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
               <Route path='/books' element={ <ResultsPage isLoading={isLoading} searchResults={searchResults} onBookSelected={onBookSelected}/> } />
               <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead} onBookUnread={onBookUnread}/> } />
-              <Route path='/books/:id' element={ <BookPage/> } /> 
+              <Route path='/books/:id' element={ <BookPage onBookRead={onBookRead} onBookUnread={onBookUnread}/> } /> 
           </Routes>
       </Router>
       </>

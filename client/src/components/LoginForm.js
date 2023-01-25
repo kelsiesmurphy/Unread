@@ -28,6 +28,8 @@ const LoginForm = ({onFormSubmit}) => {
         event.preventDefault();
         const login = {email: stateEmail, password: statePassword};
         onFormSubmit(login);
+        setEmail("")
+        setPassword("")
         navigate('/discover');
     };
 
