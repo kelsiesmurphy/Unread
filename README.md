@@ -29,16 +29,17 @@
 ### Unread
 
 <!-- BRIEF -->
-Unread is a book tracking app created for the CodeClan Javascript group project in week 9 of the professional software development course. It allows users to track the books they read, displays the statistics of this with charts, and suggests new books to the user, using the OpenLibrary API.
+Unread is a book tracking app created for the CodeClan Javascript group project in week 9 of the professional software development course. It allows multiple users to track the books they read, using the OpenLibrary API.
 It was created in January 2023 by Andromeda, Anne, Delphine and Kelsie.
 
 #### MVP
 A user should be able to:
-* Search books from an API, find a specific one and add it to your database
+* Search books from an API, find a specific one and add it to the database
 * View, edit and delete it.
 * Mark the book as read, or still to read.
 
 #### Extensions
+* Allow for multiple users
 * Suggest a book - randomly generated from the app
 * Using a graph to see your progress over the year. A visual of your books per year.
 
