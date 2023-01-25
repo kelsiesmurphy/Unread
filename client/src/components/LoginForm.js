@@ -5,6 +5,7 @@ import styled from "styled-components";
 const InputsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 8px;
     align-items: baseline;
 `
 
@@ -12,20 +13,20 @@ const InputsContainer = styled.div`
 const LoginForm = ({onFormSubmit}) => {
     const navigate = useNavigate();
 
-    const [stateUsername, setUsername] = useState("");
     const [stateEmail, setEmail] = useState("");
-
-    const handleUsername = (event) => {
-        setUsername(event.target.value);
-    };
+    const [statePassword, setPassword] = useState("");
 
     const handleEmail = (event) => {
         setEmail(event.target.value);
     };
 
+    const handlePassword = (event) => {
+        setPassword(event.target.value);
+    };
+
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        const login = {username: stateUsername, email: stateEmail};
+        const login = {email: stateEmail, password: statePassword};
         onFormSubmit(login);
         navigate('/discover');
     };
@@ -36,9 +37,9 @@ const LoginForm = ({onFormSubmit}) => {
         <>
         <form onSubmit={handleLoginSubmit}>
             <InputsContainer>
-                <input type="text" placeholder="User Name" value={stateUsername} onChange={handleUsername}/>
-                <input type="text" placeholder="E-mail" value={stateEmail} onChange={handleEmail}/>
-                <input className="btn" type="submit" value="Submit"/>
+                <input type="email" placeholder="Email" value={stateEmail} onChange={handleEmail} required/>
+                <input type="password" placeholder="Password" value={statePassword} onChange={handlePassword}/>
+                <input className="btn" type="submit" value="Submit" required/>
             </InputsContainer>
         </form>
         </>

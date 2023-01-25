@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import BookService from "../services/BookService";
 import RemoveButton from "../components/RemoveButton";
 import styled from "styled-components";
+import ReadButton from "../components/ReadButton";
 
 const BookItemContainer = styled.div`
     display: flex;
@@ -83,7 +84,7 @@ const BookPage = ({userBook, onBookRemoved}) => {
                     </div>
                     <ButtonsContainer>
                         <RemoveButton className="btn-5" userBook={userBook} onBookRemoved={onBookRemoved}/>
-                        <button className="btn-4">Mark as read</button>
+                        <ReadButton>Mark as read</ReadButton>
                     </ButtonsContainer>
                 </BookDetailsContainer>
                 <BookImageContainer>

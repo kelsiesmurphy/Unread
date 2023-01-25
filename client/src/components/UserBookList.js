@@ -12,14 +12,17 @@ const StyledUl = styled.ul`
   }
 `
 
-const UserBookList = ({user, onBookRemoved, onBookRead}) => {
-    const userBooksNodes = user.unreadBooks.map((userBook, index) => {
+const UserBookList = ({user, readState, onBookRemoved, onBookRead}) => {
+      const unreadUserBooksNodes = user.unreadBooks.map((userBook, index) => {
+          return <li key={index}><UserBookItem userBook={userBook} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/></li>
+      })
+      const readUserBooksNodes = user.readBooks.map((userBook, index) => {
         return <li key={index}><UserBookItem userBook={userBook} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/></li>
-    })
+      })
 
     return (
       <StyledUl>
-        {userBooksNodes}
+        {readState === "read" ? readUserBooksNodes : unreadUserBooksNodes}
       </StyledUl> 
     )
 }

@@ -5,7 +5,7 @@ const RemoveButton = ({userBook, onBookRemoved}) => {
     }
 
     return (
-        <button className="btn" onClick={handleRemove}>Remove</button>
+        <button className="btn btn-secondary" onClick={handleRemove}>Remove</button>
     )
 }
 

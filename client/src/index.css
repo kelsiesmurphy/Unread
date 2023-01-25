@@ -108,34 +108,6 @@ img {
   box-shadow: none;
 }
 
-.btn-4 {
-  background-color: white;
-  color: var(--clr-grey-700);
-  border: 1px solid var(--clr-grey-300);
-  border-radius: 0.5rem;
-  font-size: 1em;
-  font-weight: 600;
-  padding: 0.7rem 1.2rem;
-  cursor: pointer;
-  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  text-align: center;
-  transition: all 0.2s ease-out;
-}
-
-.btn-5 {
-  background-color: #09433D;
-  border:1px solid #09433D;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 1em;
-  font-weight: 600;
-  padding: 0.7rem 1.2rem;
-  cursor: pointer;
-  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  text-align: center;
-  transition: all 0.2s ease-out;
-}
-
 .btn:hover {
   background-color: #06322e;
   color: white;
@@ -152,18 +124,6 @@ img {
   background-color: white;
   color: var(--clr-grey-700);
   border: none;
-}
-
-.btn-4:hover {
-  background-color: #06322e;
-  color: white;
-  border:1px solid #06322e;
-}
-
-.btn-5:hover {
-  background-color: var(--clr-grey-050);
-  color: var(--clr-grey-900);
-  border: 1px solid var(--clr-grey-300);
 }
 
 .btn:focus,
@@ -274,4 +234,49 @@ input:not([type='checkbox']):not([type='submit']):focus {
     --fs-display-sm: 1.875rem;
     --fs-display-xs: 1.5rem;
   }
+}
+
+
+
+/* Option Pill CSS */
+
+
+.option-pill {
+  margin: auto;
+  width: 320px;
+  margin-top: 60px;
+  background-color: var(--clr-grey-050);
+  border: 1px solid var(--clr-grey-100);
+  border-radius: 0.5rem;
+  padding: 6px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 6px;
+}
+
+.option-pill>button {
+  background-color: var(--clr-grey-050);
+  color: var(--clr-grey-500);
+  border: none;
+  flex: 1;
+  height: 44px;
+  font-size: var(--fs-text-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.option-pill>button>span {
+  background-color: var(--clr-grey-100);
+  font-size: var(--fs-text-sm);
+  border-radius: 100px;
+  padding: 4px 10px;
+  margin-left: 6px;
+}
+
+#active {
+  background-color: white;
+  color: var(--clr-grey-700);
+  border-radius: 6px;
+  box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
 }
