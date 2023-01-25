@@ -1,5 +1,12 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const InputsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+`
 
 
 const LoginForm = ({onFormSubmit}) => {
@@ -28,9 +35,11 @@ const LoginForm = ({onFormSubmit}) => {
 
         <>
         <form onSubmit={handleLoginSubmit}>
-            <input type="text" placeholder="User Name" value={stateUsername} onChange={handleUsername}/>
-            <input type="text" placeholder="E-mail" value={stateEmail} onChange={handleEmail}/>
-            <input type="submit" value="Submit"/>
+            <InputsContainer>
+                <input type="text" placeholder="User Name" value={stateUsername} onChange={handleUsername}/>
+                <input type="text" placeholder="E-mail" value={stateEmail} onChange={handleEmail}/>
+                <input className="btn" type="submit" value="Submit"/>
+            </InputsContainer>
         </form>
         </>
 
