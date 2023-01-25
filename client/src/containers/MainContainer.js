@@ -46,7 +46,7 @@ const MainContainer = () => {
     }
     BookService.addBook(updatedBook) 
     .then((savedBook) => {
-        const copyUser = user
+        const copyUser = {...user}
         copyUser.unreadBooks.push(savedBook)
         setUser(copyUser)
         UserService.updateUser(copyUser)
@@ -54,7 +54,7 @@ const MainContainer = () => {
   }
 
   const onBookRemoved = (bookToRemove) => {
-    const copyUser = user
+    const copyUser = {...user}
     const bookToRemoveIndex = copyUser.unreadBooks.findIndex(book => book._id === bookToRemove._id)
     copyUser.unreadBooks.splice(bookToRemoveIndex, 1) 
     BookService.deleteBook(bookToRemove._id);
@@ -71,7 +71,7 @@ const MainContainer = () => {
 
   const onBookRead = (bookRead) => {
     console.log(bookRead)
-    const copyUser = user
+    const copyUser = {...user}
     const bookReadIndex = copyUser.unreadBooks.findIndex(book => book._id === bookRead._id)
     copyUser.unreadBooks.splice(bookReadIndex, 1)
     copyUser.readBooks.push(bookRead)

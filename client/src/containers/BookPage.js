@@ -60,7 +60,7 @@ const ButtonsContainer = styled.div`
     align-items: baseline;
 `
 
-const BookPage = ({userBook, onBookRemoved}) => {
+const BookPage = ({userBook, onBookRemoved, onBookRead}) => {
 
     const {id} = useParams()
 
@@ -84,7 +84,7 @@ const BookPage = ({userBook, onBookRemoved}) => {
                     </div>
                     <ButtonsContainer>
                         <RemoveButton className="btn-5" userBook={userBook} onBookRemoved={onBookRemoved}/>
-                        <ReadButton>Mark as read</ReadButton>
+                        <ReadButton onBookRead={onBookRead} userBook={userBook}/>
                     </ButtonsContainer>
                 </BookDetailsContainer>
                 <BookImageContainer>
