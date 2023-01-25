@@ -54,9 +54,12 @@ const MainContainer = () => {
   }
 
   const onBookRemoved = (bookToRemove) => {
-    const bookToRemoveIndex = user.unreadBooks.findIndex(book => book._id === bookToRemove._id)
-    user.unreadBooks.splice(bookToRemoveIndex, 1) // UPDATING THE STATE DIRECTLY?
+    const copyUser = user
+    const bookToRemoveIndex = copyUser.unreadBooks.findIndex(book => book._id === bookToRemove._id)
+    copyUser.unreadBooks.splice(bookToRemoveIndex, 1) 
     BookService.deleteBook(bookToRemove._id);
+    setUser(copyUser)
+    UserService.updateUser(copyUser)
     // setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
   }
       
@@ -67,6 +70,7 @@ const MainContainer = () => {
   };
 
   const onBookRead = (bookRead) => {
+    console.log(bookRead)
     const copyUser = user
     const bookReadIndex = copyUser.unreadBooks.findIndex(book => book._id === bookRead._id)
     copyUser.unreadBooks.splice(bookReadIndex, 1)
