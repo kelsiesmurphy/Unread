@@ -34,7 +34,7 @@ const NavBar = () => {
                 <LeftNavBar>
                     <img src='/unread-logo-transparent.png' width="127" />
                     <div>
-                        <Link id='discover' to="/">Discover</Link>
+                        <Link id='discover' to="/discover">Discover</Link>
                         <Link id='profile' to="/user/">Profile</Link>
                         <Link id='blog' to='#'>Blog</Link>
                     </div>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const InputsContainer = styled.div`
@@ -9,6 +10,7 @@ const InputsContainer = styled.div`
 
 
 const LoginForm = ({onFormSubmit}) => {
+    const navigate = useNavigate();
 
     const [stateUsername, setUsername] = useState("");
     const [stateEmail, setEmail] = useState("");
@@ -25,6 +27,7 @@ const LoginForm = ({onFormSubmit}) => {
         event.preventDefault();
         const login = {username: stateUsername, email: stateEmail};
         onFormSubmit(login);
+        navigate('/discover');
     };
 
 

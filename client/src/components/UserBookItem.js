@@ -1,6 +1,7 @@
 import RemoveButton from "./RemoveButton";
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
+import ReadButton from "./ReadButton";
 
 
 const BookItemContainer = styled.div`
@@ -45,7 +46,7 @@ const BookDetailsContainer = styled.div`
     }
 `
 
-const UserBookItem = ({userBook, onBookRemoved}) => {
+const UserBookItem = ({userBook, onBookRemoved, onBookRead}) => {
 
     const bookUrl = `/books/${userBook._id}`
 
@@ -63,6 +64,7 @@ const UserBookItem = ({userBook, onBookRemoved}) => {
                     <Link to={bookUrl}>Further details...</Link>
                 </div>
                 <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
+                <ReadButton userBook={userBook} onBookRead={onBookRead}/>
             </BookDetailsContainer>
         </BookItemContainer>
     )

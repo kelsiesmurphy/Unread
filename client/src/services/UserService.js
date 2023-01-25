@@ -22,7 +22,7 @@ getSingleUser(id) {
 
 // Updating a user
 updateUser(user) {
-    return fetch(baseURL + user._id, {
+    return fetch(baseURL + "/" + user._id, {
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {
