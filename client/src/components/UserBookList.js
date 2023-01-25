@@ -12,9 +12,9 @@ const StyledUl = styled.ul`
   }
 `
 
-const UserBookList = ({user, onBookRemoved}) => {
+const UserBookList = ({user, onBookRemoved, onBookRead}) => {
     const userBooksNodes = user.unreadBooks.map((userBook, index) => {
-        return <li key={index}><UserBookItem userBook={userBook} onBookRemoved={onBookRemoved}/></li>
+        return <li key={index}><UserBookItem userBook={userBook} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/></li>
     })
 
     return (

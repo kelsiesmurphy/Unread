@@ -46,29 +46,34 @@ const MainContainer = () => {
     }
     BookService.addBook(updatedBook) 
     .then((savedBook) => {
-      // setToReadList([...toReadList, savedBook])
-      // Create a 'unreadBooks' array, and add updates it on the user.
-      const copyUser = user
-      copyUser.unreadBooks = []
-      copyUser.unreadBooks.push(savedBook)
-      // ISSUES ARE AROUND HEREE!
-      setUser(copyUser)
-      UserService.updateUser(copyUser)
+        const copyUser = user
+        copyUser.unreadBooks.push(savedBook)
+        setUser(copyUser)
+        UserService.updateUser(copyUser)
     })
   }
 
   const onBookRemoved = (bookToRemove) => {
     const bookToRemoveIndex = user.unreadBooks.findIndex(book => book._id === bookToRemove._id)
-    user.unreadBooks.splice(bookToRemoveIndex, 1)
+    user.unreadBooks.splice(bookToRemoveIndex, 1) // UPDATING THE STATE DIRECTLY?
     BookService.deleteBook(bookToRemove._id);
     // setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
   }
       
   const onFormSubmit = (login) => {
-    const newUser = {userlogin: login}
+    const newUser = {userlogin: login, "unreadBooks" : [], "readBooks" : []}
     UserService.addUser(newUser)
     .then(savedUser => setUser(savedUser));
   };
+
+  const onBookRead = (bookRead) => {
+    const copyUser = user
+    const bookReadIndex = copyUser.unreadBooks.findIndex(book => book._id === bookRead._id)
+    copyUser.unreadBooks.splice(bookReadIndex, 1)
+    copyUser.readBooks.push(bookRead)
+    setUser(copyUser)
+    UserService.updateUser(copyUser)
+  }
 
   return (
       <>
@@ -77,7 +82,7 @@ const MainContainer = () => {
               <Route path='/' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
               <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
               <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
-              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved}/> } />
+              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/> } />
               <Route path='/books/:id' element={ <BookPage/> } /> 
           </Routes>
       </Router>

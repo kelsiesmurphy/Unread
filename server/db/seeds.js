@@ -6,13 +6,17 @@ db.users.insertMany([
     "login": {
       "username":"Lord_of_the_flies",
       "email": "lotf@yahoo.com"
-    }
+    },
+    "unreadBooks" : [],
+    "readBooks" : []
   },
   {
     "login": {
       "username":"no_name",
       "email": "peter@yahoo.com"
-    }
+    },
+    "unreadBooks" : [],
+    "readBooks" : []
   }
 ])
 
