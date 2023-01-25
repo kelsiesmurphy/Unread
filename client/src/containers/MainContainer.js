@@ -58,11 +58,24 @@ const MainContainer = () => {
 
   const onBookRemoved = (bookToRemove) => {
     const copyUser = {...user}
+    console.log('bookToRemove', bookToRemove);
     const bookToRemoveIndex = copyUser.unreadBooks.findIndex(book => book._id === bookToRemove._id)
-    copyUser.unreadBooks.splice(bookToRemoveIndex, 1) 
-    BookService.deleteBook(bookToRemove._id);
-    setUser(copyUser)
-    UserService.updateUser(copyUser)
+    console.log('bookToRemoveIndex', bookToRemoveIndex);
+    if (bookToRemoveIndex >= 0) {
+        copyUser.unreadBooks.splice(bookToRemoveIndex, 1)
+        BookService.deleteBook(bookToRemove._id);
+        setUser(copyUser)
+        UserService.updateUser(copyUser)
+    }
+    else {
+        console.log('else triggered');
+        const bookToRemoveIndex = copyUser.readBooks.findIndex(book => book._id === bookToRemove._id)
+        copyUser.readBooks.splice(bookToRemoveIndex, 1)
+        BookService.deleteBook(bookToRemove._id);
+        setUser(copyUser)
+        UserService.updateUser(copyUser)
+    } 
+    
     // setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
   }
       
