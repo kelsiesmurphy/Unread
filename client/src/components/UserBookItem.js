@@ -1,6 +1,7 @@
 import RemoveButton from "./RemoveButton";
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
+import ReadButton from "./ReadButton";
 
 
 const BookItemContainer = styled.div`
@@ -33,6 +34,11 @@ const BookDetailsContainer = styled.div`
         flex-direction: column;
         gap: 8px;
     }
+    > div.button-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
     > div > h4 {
         font-size: var(--fs-text-sm);
         font-weight: var(--fw-semibold);
@@ -45,7 +51,7 @@ const BookDetailsContainer = styled.div`
     }
 `
 
-const UserBookItem = ({userBook, onBookRemoved}) => {
+const UserBookItem = ({userBook, readState, onBookRemoved, onBookRead, onBookUnread}) => {
 
     const bookUrl = `/books/${userBook._id}`
 
@@ -62,7 +68,10 @@ const UserBookItem = ({userBook, onBookRemoved}) => {
                     <br/>
                     <Link to={bookUrl}>Further details...</Link>
                 </div>
-                <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
+                <div className="button-wrapper">
+                    <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
+                    <ReadButton userBook={userBook} readState={readState} onBookRead={onBookRead} onBookUnread={onBookUnread}/>
+                </div>
             </BookDetailsContainer>
         </BookItemContainer>
     )

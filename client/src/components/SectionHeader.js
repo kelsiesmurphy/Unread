@@ -21,11 +21,12 @@ const HeaderWrapper = styled.div`
     }
 `
 
-const SectionHeader = ({ header, subheader }) => {
+const SectionHeader = ({ isLoading, header, subheader }) => {
   return (
     <HeaderWrapper>
         <h1>{header}</h1>
         <p>{subheader}</p>
+        {isLoading ? <img width="40" src='/loading-animation.svg'/> : null}
     </HeaderWrapper>
   )
 }

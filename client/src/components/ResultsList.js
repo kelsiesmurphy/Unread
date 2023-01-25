@@ -15,7 +15,7 @@ const StyledUl = styled.ul`
 const ResultsList = ({searchResults, onBookSelected}) => {
 
     const resultsNodes = searchResults.map((book, index) => {
-        return <li key={index}><BookItem book={book} onBookSelected={onBookSelected}/></li>
+        return <li key={index}><BookItem book={book} onBookSelected={onBookSelected} /></li>
     })
 
     return (

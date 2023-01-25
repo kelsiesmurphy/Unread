@@ -34,14 +34,14 @@ const NavBar = () => {
                 <LeftNavBar>
                     <img src='/unread-logo-transparent.png' width="127" />
                     <div>
-                        <Link id='discover' to="/">Discover</Link>
+                        <Link id='discover' to="/discover">Discover</Link>
                         <Link id='profile' to="/user/">Profile</Link>
                         <Link id='blog' to='#'>Blog</Link>
                     </div>
                 </LeftNavBar>
                 <RightNavBar>
-                    <a className='btn btn-tertiary' href='#'>Log in</a>
-                    <a className='btn' href='#'>Sign up</a>
+                    <a className='btn btn-tertiary' href='/'>Log in</a>
+                    <a className='btn' href='/'>Sign up</a>
                 </RightNavBar>
             </NavBarContainer>
         </OuterContainer>
