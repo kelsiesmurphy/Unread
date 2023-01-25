@@ -51,7 +51,7 @@ const BookDetailsContainer = styled.div`
     }
 `
 
-const UserBookItem = ({userBook, onBookRemoved, onBookRead}) => {
+const UserBookItem = ({userBook, readState, onBookRemoved, onBookRead, onBookUnread}) => {
 
     const bookUrl = `/books/${userBook._id}`
 
@@ -70,7 +70,7 @@ const UserBookItem = ({userBook, onBookRemoved, onBookRead}) => {
                 </div>
                 <div className="button-wrapper">
                     <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
-                    <ReadButton userBook={userBook} onBookRead={onBookRead}/>
+                    <ReadButton userBook={userBook} readState={readState} onBookRead={onBookRead} onBookUnread={onBookUnread}/>
                 </div>
             </BookDetailsContainer>
         </BookItemContainer>

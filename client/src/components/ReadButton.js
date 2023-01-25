@@ -1,11 +1,15 @@
-const ReadButton = ({userBook, onBookRead}) => {
+const ReadButton = ({userBook, readState, onBookRead, onBookUnread}) => {
 
-    const handleMarkRead = () => {
-        onBookRead(userBook)
+    const handleToggle = () => {
+        if(readState === "read"){
+            onBookUnread(userBook)
+        } else if (readState === "unread") {
+            onBookRead(userBook)
+        }
     }
 
     return (
-        <button className="btn" onClick={handleMarkRead}>Mark as Read</button>
+        <button className="btn" onClick={handleToggle}>{readState === "read" ? "Mark as Unread" : "Mark as Read"}</button>
     )
 }
 

@@ -9,9 +9,14 @@ import BookService from '../services/BookService';
 import UserService from '../services/UserService';
 
 const MainContainer = () => {
+  
   const [searchResults, setSearchResults] = useState([])
   const [searchBarInput, setSearchBarInput] = useState('')
   const [user, setUser] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
+
+
+  console.log(isLoading)
 
   useEffect( () => {
       fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
@@ -24,16 +29,14 @@ const MainContainer = () => {
           Promise.all(bookPromises)
           .then(books => {
           setSearchResults(books);
+          setIsLoading(false)
           });
       })
+
   }, [searchBarInput]);
 
-  // useEffect(() => {
-  //   BookService.getBooks()
-  //     .then(books => setToReadList(books))
-  // }, [])
-
   const handleSubmitForm = (updatedValue) => { 
+    setIsLoading(true)
     setSearchBarInput(updatedValue)
   }
 
@@ -70,11 +73,20 @@ const MainContainer = () => {
   };
 
   const onBookRead = (bookRead) => {
-    console.log(bookRead)
     const copyUser = {...user}
     const bookReadIndex = copyUser.unreadBooks.findIndex(book => book._id === bookRead._id)
     copyUser.unreadBooks.splice(bookReadIndex, 1)
     copyUser.readBooks.push(bookRead)
+    setUser(copyUser)
+    UserService.updateUser(copyUser)
+  }
+
+  const onBookUnread = (bookUnread) => {
+    console.log('unread-home');
+    const copyUser = {...user}
+    const bookUnreadIndex = copyUser.readBooks.findIndex(book => book._id === bookUnread._id)
+    copyUser.readBooks.splice(bookUnreadIndex, 1)
+    copyUser.unreadBooks.push(bookUnread)
     setUser(copyUser)
     UserService.updateUser(copyUser)
   }
@@ -85,8 +97,8 @@ const MainContainer = () => {
           <Routes>
               <Route path='/' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
               <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
-              <Route path='/books' element={ <ResultsPage searchResults={searchResults} onBookSelected={onBookSelected}/> } />
-              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/> } />
+              <Route path='/books' element={ <ResultsPage isLoading={isLoading} searchResults={searchResults} onBookSelected={onBookSelected}/> } />
+              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead} onBookUnread={onBookUnread}/> } />
               <Route path='/books/:id' element={ <BookPage/> } /> 
           </Routes>
       </Router>

@@ -5,7 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import UserBookList from "../components/UserBookList"
 
 
-const UserPage = ({user, onBookRemoved, onBookRead}) => {
+const UserPage = ({user, onBookRemoved, onBookRead, onBookUnread}) => {
 
     const [readState, setReadState] = useState("unread")
   
@@ -21,7 +21,7 @@ const UserPage = ({user, onBookRemoved, onBookRead}) => {
                 <button onClick={() => handleReadState('read')} id={readState === "read" ? "active" : ""}>Read</button>
                 <button onClick={() => handleReadState('unread')} id={readState === "unread" ? "active" : ""}>Unread</button>
             </div>
-            <UserBookList user={user} readState={readState} onBookRemoved={onBookRemoved} onBookRead={onBookRead}/>
+            <UserBookList user={user} readState={readState} onBookRemoved={onBookRemoved} onBookRead={onBookRead} onBookUnread={onBookUnread}/>
             <Footer />
         </>
     );
