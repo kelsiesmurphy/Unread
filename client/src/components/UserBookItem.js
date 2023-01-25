@@ -34,6 +34,11 @@ const BookDetailsContainer = styled.div`
         flex-direction: column;
         gap: 8px;
     }
+    > div.button-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
     > div > h4 {
         font-size: var(--fs-text-sm);
         font-weight: var(--fw-semibold);
@@ -63,8 +68,10 @@ const UserBookItem = ({userBook, onBookRemoved, onBookRead}) => {
                     <br/>
                     <Link to={bookUrl}>Further details...</Link>
                 </div>
-                <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
-                <ReadButton userBook={userBook} onBookRead={onBookRead}/>
+                <div className="button-wrapper">
+                    <RemoveButton userBook={userBook} onBookRemoved={onBookRemoved}/>
+                    <ReadButton userBook={userBook} onBookRead={onBookRead}/>
+                </div>
             </BookDetailsContainer>
         </BookItemContainer>
     )
