@@ -29,21 +29,21 @@
 ### Unread
 
 <!-- BRIEF -->
-Unread is a book tracking app created for the CodeClan Javascript group project in week 9 of the professional software development course. It allows multiple users to track the books they read, using the OpenLibrary API.
+Unread is a book tracking app created for the CodeClan Javascript group project in week 9 of the professional software development course. It allows multiple users to track the books they read, and select new ones from the OpenLibrary API.
 It was created in January 2023 by Andromeda, Anne, Delphine and Kelsie.
 
-#### MVP
-A user should be able to:
-* Search books from an API, find a specific one and add it to the database
-* View, edit and delete it.
-* Mark the book as read, or still to read.
+<img align="center" src="https://user-images.githubusercontent.com/77012426/215062718-8b106dbd-2d48-4918-a136-151095f3bd21.jpg" alt="Unread landing page home">
 
-#### Extensions
-* Allow for multiple users
+#### MVP
+The application should be able to:
+* Allow a user to search books from an API, find a specific one and add it to the database
+* Allow them to add and remove books from their personal library.
+* Mark a book as read, or still to read.
+* Allow for multiple users within the app.
+
+#### Future Extensions
 * Suggest a book - randomly generated from the app
 * Using a graph to see your progress over the year. A visual of your books per year.
-
-#### Advanced Extensions
 * Share a book externally - send a book to another user in the app 
 * Share a book externally - send a book by email 
 
@@ -52,7 +52,7 @@ A user should be able to:
 
 <!-- DESIGN -->
 ## Design
-We designed the low fidelity and high fidelity wireframes in Figma during the planning process.
+We designed the low fidelity and high fidelity wireframes in Figma during the planning process. [You can view them here](https://www.figma.com/file/ZNgM5Gp7SKvvYDavCIro8E/unread---public?t=w4H99EnJPdtv5T5E-1)
 
 <!-- BUILT WITH -->
 ## Built With
@@ -72,4 +72,4 @@ We designed the low fidelity and high fidelity wireframes in Figma during the pl
 * Anne McGinness - [GitHub](https://github.com/AMG05)
 * Delphine Dallison - [GitHub](https://github.com/Delfland)
 
-Project Link: [https://github.com/AndromedaMedi/Unread](https://github.com/AndromedaMedi/Unread)
+Original Project Link: [https://github.com/AndromedaMedi/Unread](https://github.com/AndromedaMedi/Unread)
