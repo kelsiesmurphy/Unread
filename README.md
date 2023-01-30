@@ -34,6 +34,8 @@ It was created in January 2023 by Andromeda, Anne, Delphine and Kelsie.
 
 <img align="center" src="https://user-images.githubusercontent.com/77012426/215062718-8b106dbd-2d48-4918-a136-151095f3bd21.jpg" alt="Unread landing page home">
 
+https://user-images.githubusercontent.com/77012426/215486350-9b6afb98-2f20-457b-b5a0-4df4110e8c61.mp4
+
 #### MVP
 The application should be able to:
 * Allow a user to search books from an API, find a specific one and add it to the database
