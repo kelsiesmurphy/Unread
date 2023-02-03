@@ -10,6 +10,7 @@
         <li><a href="#brief">Brief</a></li>
         <li><a href="#design">Design</a></li>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#reflections">Reflections</a></li>
       </ul>
     </li>
     <li>
@@ -64,6 +65,10 @@ We designed the low fidelity and high fidelity wireframes in Figma during the pl
 * Styled Components
 * HTML
 * CSS
+
+<!-- REFLECTIONS -->
+## Reflections
+I believe we achieved a great deal as a team within the timeframe, and there were several opportunities to mentor other members of the team and be mentored back. In a future project, I intend to focus more closely on the testing aspect of the project.
 
 
 <!-- CONTACT -->
