@@ -1,5 +1,4 @@
 const AddButton = ({book, onBookSelected}) => {
-
     const handleClick = () => {
         onBookSelected(book)
     }

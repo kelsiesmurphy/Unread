@@ -33,19 +33,16 @@ const LoginForm = ({onFormSubmit}) => {
         navigate('/discover');
     };
 
-
     return (
-
         <>
-        <form onSubmit={handleLoginSubmit}>
-            <InputsContainer>
-                <input type="email" placeholder="Email" value={stateEmail} onChange={handleEmail} required/>
-                <input type="password" placeholder="Password" value={statePassword} onChange={handlePassword}/>
-                <input className="btn" type="submit" value="Submit" required/>
-            </InputsContainer>
-        </form>
+            <form onSubmit={handleLoginSubmit}>
+                <InputsContainer>
+                    <input type="email" placeholder="Email" value={stateEmail} onChange={handleEmail} required/>
+                    <input type="password" placeholder="Password" value={statePassword} onChange={handlePassword}/>
+                    <input className="btn" type="submit" value="Submit" required/>
+                </InputsContainer>
+            </form>
         </>
-
     )
 }
 

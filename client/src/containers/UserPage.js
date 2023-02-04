@@ -4,9 +4,7 @@ import NavBar from "../components/NavBar";
 import SectionHeader from "../components/SectionHeader";
 import UserBookList from "../components/UserBookList"
 
-
 const UserPage = ({user, onBookRemoved, onBookRead, onBookUnread}) => {
-
     const [readState, setReadState] = useState("unread")
   
     const handleReadState = (toggleValue) => {

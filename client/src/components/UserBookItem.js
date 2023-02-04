@@ -7,7 +7,6 @@ import ReadButton from "./ReadButton";
 const BookItemContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    /* ^ Will wrap to line below if squished  */
     min-height: 292px;
 `
 const BookImageContainer = styled.div`
@@ -62,7 +61,7 @@ const UserBookItem = ({userBook, readState, onBookRemoved, onBookRead, onBookUnr
             </BookImageContainer>
             <BookDetailsContainer>
                 <div>
-                    <h4>{userBook.author_name}</h4>
+                    {/* <h4>{userBook.author_name}</h4> */}
                     <h3>{userBook.title}</h3>
                     <p>{userBook.description.substring(0, 104) + "..."}</p>
                     <br/>

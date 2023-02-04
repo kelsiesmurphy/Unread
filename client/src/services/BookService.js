@@ -2,19 +2,19 @@ const baseURL = 'http://localhost:9000/api/books';
 
 const BookService = {
 
-//    gets All books from database
+    // gets All books from database
     getBooks() {
         return fetch(baseURL)
         .then(res => res.json());
     },
 
-//    get single book from d
+    // get single book from id
     getSingleBook(id) {
         return fetch(baseURL + "/" + id)
         .then(res => res.json());
     },
 
-// Adding a book to the database
+    // Adding a book to the database
     addBook(updatedBook) {
         return fetch(baseURL, {
             method: 'POST',
@@ -26,7 +26,7 @@ const BookService = {
         .then(res => res.json());
     },
 
- // Updating a book
+    // Updating a book
     updateBook(book) {
         return fetch(baseURL + "/" +  book._id, {
             method: 'PUT',
@@ -38,7 +38,7 @@ const BookService = {
         .then(res => res.json());
     },
 
-// Delete a book
+    // Delete a book
     deleteBook(id) {
         return fetch(baseURL + "/" + id, {
             method: 'DELETE'

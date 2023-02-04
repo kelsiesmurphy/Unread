@@ -15,9 +15,6 @@ const MainContainer = () => {
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
-
-  console.log(isLoading)
-
   useEffect( () => {
       fetch( `https://openlibrary.org/search.json?q=${searchBarInput}` )
       .then( res => res.json())
@@ -58,9 +55,7 @@ const MainContainer = () => {
 
   const onBookRemoved = (bookToRemove) => {
     const copyUser = {...user}
-    console.log('bookToRemove', bookToRemove);
     const bookToRemoveIndex = copyUser.unreadBooks.findIndex(book => book._id === bookToRemove._id)
-    console.log('bookToRemoveIndex', bookToRemoveIndex);
     if (bookToRemoveIndex >= 0) {
         copyUser.unreadBooks.splice(bookToRemoveIndex, 1)
         BookService.deleteBook(bookToRemove._id);
@@ -68,7 +63,6 @@ const MainContainer = () => {
         UserService.updateUser(copyUser)
     }
     else {
-        console.log('else triggered');
         const bookToRemoveIndex = copyUser.readBooks.findIndex(book => book._id === bookToRemove._id)
         copyUser.readBooks.splice(bookToRemoveIndex, 1)
         BookService.deleteBook(bookToRemove._id);
@@ -104,15 +98,15 @@ const MainContainer = () => {
 
   return (
       <>
-      <Router>
-          <Routes>
-              <Route path='/' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
-              <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
-              <Route path='/books' element={ <ResultsPage isLoading={isLoading} searchResults={searchResults} onBookSelected={onBookSelected}/> } />
-              <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead} onBookUnread={onBookUnread}/> } />
-              <Route path='/books/:id' element={ <BookPage onBookRead={onBookRead} onBookUnread={onBookUnread}/> } /> 
-          </Routes>
-      </Router>
+        <Router>
+            <Routes>
+                <Route path='/' element={ <LoginPage onFormSubmit={onFormSubmit} user={user}/> } />
+                <Route path='/discover' element={ <HomePage handleSubmitForm={handleSubmitForm}/> } />
+                <Route path='/books' element={ <ResultsPage isLoading={isLoading} searchResults={searchResults} onBookSelected={onBookSelected}/> } />
+                <Route path='/user' element={ <UserPage user={user} onBookRemoved={onBookRemoved} onBookRead={onBookRead} onBookUnread={onBookUnread}/> } />
+                <Route path='/books/:id' element={ <BookPage /> } /> 
+            </Routes>
+        </Router>
       </>
   );
 };

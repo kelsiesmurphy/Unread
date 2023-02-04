@@ -1,5 +1,4 @@
 const ReadButton = ({userBook, readState, onBookRead, onBookUnread}) => {
-
     const handleToggle = () => {
         if(readState === "read"){
             onBookUnread(userBook)

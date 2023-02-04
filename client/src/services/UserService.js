@@ -11,26 +11,26 @@ const UserService = {
             'Content-Type': 'application/json'
         }
     })
-    .then(res => res.json());
-},
+        .then(res => res.json());
+    },
 
-//    get single user from d
-getSingleUser(id) {
-    return fetch(baseURL + "/" + id)
-    .then(res => res.json());
-},
+    // get single user from id
+    getSingleUser(id) {
+        return fetch(baseURL + "/" + id)
+        .then(res => res.json());
+    },
 
-// Updating a user
-updateUser(user) {
-    return fetch(baseURL + "/" + user._id, {
-        method: 'PUT',
-        body: JSON.stringify(user),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(res => res.json());
-},
+    // Updating a user
+    updateUser(user) {
+        return fetch(baseURL + "/" + user._id, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json());
+    },
 
 }
 

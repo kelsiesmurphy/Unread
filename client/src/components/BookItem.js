@@ -1,13 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import AddButton from "./AddButton";
 import styled from 'styled-components';
-
 
 const BookItemContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    /* ^ Will wrap to line below if squished  */
     min-height: 292px;
 `
 const BookImageContainer = styled.div`
@@ -47,25 +44,18 @@ const BookDetailsContainer = styled.div`
 `
 
 const BookItem = ({book, onBookSelected}) => {
-
-    // fetch( `https://openlibrary.org/${book.authors[0].author.key}.json` )
-    //   .then( res => console.log(res.json()))
-
     return (
         <BookItemContainer>
             <BookImageContainer>
                 <img src={book.covers ? `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : "/book-cover-unavailable.svg"} alt={book.title} />
             </BookImageContainer>
             <BookDetailsContainer>
-
                 <div>
-                    {/* FIX THIS KELSIE */}
                     {/* <h4>{book.authors ? book.authors[0].name : "Author not available"}</h4>  */}
                     <h3>{book.title ? book.title : "Title not available"}</h3>
                     <p>{typeof book.description === "string" ? book.description.substring(0, 400) + "..." : "Description not available"}</p>
                 </div>
-
-                <AddButton book={book} onBookSelected={onBookSelected}/>
+            <AddButton book={book} onBookSelected={onBookSelected}/>
             </BookDetailsContainer>
         </BookItemContainer>
     )

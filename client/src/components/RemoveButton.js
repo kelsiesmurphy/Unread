@@ -1,5 +1,4 @@
 const RemoveButton = ({userBook, onBookRemoved}) => {
-
     const handleRemove = () => {
         onBookRemoved(userBook)
     }

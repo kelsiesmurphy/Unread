@@ -3,14 +3,11 @@ import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import BookService from "../services/BookService";
-import RemoveButton from "../components/RemoveButton";
 import styled from "styled-components";
-import ReadButton from "../components/ReadButton";
 
 const BookItemContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    /* ^ Will wrap to line below if squished  */
     min-height: 292px;
 `
 const BookImageContainer = styled.div`
@@ -54,16 +51,8 @@ const BookDetailsContainer = styled.div`
         max-width: 600px;
     }
 `
-// const ButtonsContainer = styled.div`
-//     padding-top: 2rem;
-//     flex: 1;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: left;
-//     align-items: baseline;
-// `
 
-const BookPage = ({userBook, readState, onBookRemoved, onBookRead, onBookUnread}) => {
+const BookPage = () => {
 
     const {id} = useParams()
 
@@ -85,10 +74,6 @@ const BookPage = ({userBook, readState, onBookRemoved, onBookRead, onBookUnread}
                         <h3>{book.title}</h3>
                         <p>{book.description}</p>
                     </div>
-                    {/* <ButtonsContainer>
-                        <RemoveButton className="btn-5" readState={readState} userBook={userBook} onBookRemoved={onBookRemoved}/>
-                        <ReadButton onBookRead={onBookRead} onBookUnread={onBookUnread} readState={readState} userBook={userBook}/>
-                    </ButtonsContainer> */}
                 </BookDetailsContainer>
                 <BookImageContainer>
                     <img src={book.cover_image_url} alt={book.title} />

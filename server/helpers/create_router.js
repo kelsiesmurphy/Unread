@@ -5,8 +5,7 @@ const createRouter = function(collection) {
 
   const router = express.Router();
 
-// Get all books (GET)
-
+  // Get all books (GET)
   router.get('/', (req, res) => {
     collection
     .find()
@@ -19,8 +18,7 @@ const createRouter = function(collection) {
     });
   });
 
-// Get a book (GET)
-
+  // Get a book (GET)
   router.get('/:id', (req, res) => {
     id = req.params.id
     collection
@@ -33,7 +31,7 @@ const createRouter = function(collection) {
     });
   });
 
-// Creating a book (POST)
+  // Creating a book (POST)
   router.post('/', (req, res) => {
     const newData = req.body;
     collection
@@ -66,7 +64,6 @@ const createRouter = function(collection) {
   });
 
   // Deleting a book (DELETE)
-
   router.delete('/:id', (req, res) => {
     const id = req.params.id;
     collection
