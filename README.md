@@ -71,21 +71,21 @@ We designed the low fidelity and high fidelity wireframes in Figma during the pl
 ## Getting Started
 ### Prerequisites
 
-To run this app, you must run the following in the client directory: 
-* pnpm install
+#### To run this app, you must run the following in the client directory: 
+* npm install
   ```sh
-  pnpm install
+  npm install
   ```
 
 * run in development
   ```sh
-  pnpm run dev
+  npm run dev
   ```
   
-  Then you must navigate to the server directory and run the following: 
-* pnpm install
+#### Then you must navigate to the server directory and run the following: 
+* npm install
   ```sh
-  pnpm install
+  npm install
   ```
   
 * seed the database
@@ -95,7 +95,7 @@ To run this app, you must run the following in the client directory:
 
 * get the server running
   ```sh
-  pnpm run server:dev
+  npm run server:dev
   ```
 Note: To stop the server enter ctrl + c in your Terminal
 
