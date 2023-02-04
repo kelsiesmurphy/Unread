@@ -10,6 +10,7 @@
         <li><a href="#brief">Brief</a></li>
         <li><a href="#design">Design</a></li>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#getting-startedh">Getting Started</a></li>
         <li><a href="#reflections">Reflections</a></li>
       </ul>
     </li>
@@ -65,6 +66,38 @@ We designed the low fidelity and high fidelity wireframes in Figma during the pl
 * Styled Components
 * HTML
 * CSS
+
+<!-- GETTING STARTED -->
+## Getting Started
+### Prerequisites
+
+To run this app, you must run the following in the client directory: 
+* pnpm install
+  ```sh
+  pnpm install
+  ```
+
+* run in development
+  ```sh
+  pnpm run dev
+  ```
+  
+  Then you must navigate to the server directory and run the following: 
+* pnpm install
+  ```sh
+  pnpm install
+  ```
+  
+* seed the database
+  ```sh
+  npm run seeds
+  ```
+
+* get the server running
+  ```sh
+  pnpm run server:dev
+  ```
+Note: To stop the server enter ctrl + c in your Terminal
 
 <!-- REFLECTIONS -->
 ## Reflections
