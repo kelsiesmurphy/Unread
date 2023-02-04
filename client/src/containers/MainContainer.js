@@ -74,9 +74,7 @@ const MainContainer = () => {
         BookService.deleteBook(bookToRemove._id);
         setUser(copyUser)
         UserService.updateUser(copyUser)
-    } 
-    
-    // setToReadList(toReadList.filter(book => book._id !== bookToRemove._id));
+    }
   }
       
   const onFormSubmit = (login) => {
